@@ -1,4 +1,4 @@
-package com.example.maico.donaanaapp;
+package com.gasdonaana.gasdonaana;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
