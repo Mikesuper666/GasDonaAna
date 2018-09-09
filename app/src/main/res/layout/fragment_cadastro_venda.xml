@@ -1,0 +1,250 @@
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:layout_gravity="center_vertical"
+    android:orientation="vertical"
+    android:id="@+id/corpoExecao"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:id="@+id/corpoExecao2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/colorPrimary">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/fragment_cad_venda_titulo"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/fragVendaEDTdescricao"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="@string/widget_registradora_descricao"
+                android:textAlignment="center"
+                android:nextFocusForward="@+id/fragVendaEDTqtde"/>
+
+            <EditText
+                android:id="@+id/fragVendaEDTqtde"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:text="@string/fragment_cad_venda_qtde"
+                android:hint="@string/widget_registradora_qtde"
+                android:inputType="number"
+                android:textAlignment="center"
+                android:nextFocusDown="@+id/fragVendaEDTvalor" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+
+            <EditText
+                android:id="@+id/fragVendaEDTvalor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/widget_registradora_valor"
+                android:inputType="number"
+                android:textAlignment="center"
+                android:nextFocusDown="@+id/fragVendaEDTvenda" />
+
+
+            <EditText
+                android:id="@+id/fragVendaEDTtroco"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:hint="@string/fragment_cad_venda_troco"
+                android:inputType="number"
+                android:textAlignment="center" />
+
+
+            <EditText
+                android:id="@+id/fragVendaEDTvenda"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/registradora_label_total"
+                android:inputType="number"
+                android:textAlignment="center" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fragment_cad_venda_tele"
+                    android:textAlignment="center"
+                    android:textSize="18sp" />
+
+                <Spinner
+                    android:id="@+id/fragVendaSpinnerTele"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/venda_entrega"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fragment_cad_venda_pag"
+                    android:textAlignment="center"
+                    android:textSize="18sp" />
+
+                <Spinner
+                    android:id="@+id/fragVendaSpinnerPagamento"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/venda_pagamento" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.4"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fragment_cad_venda_int"
+                    android:textSize="18sp" />
+
+                <CheckBox
+                    android:id="@+id/fragVendaCheckInteira"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/venda_pagamento" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/fragVendaLinearEntrega"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/fragment_cad_venda_end"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/fragVendaEDTrua"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:hint="@string/fragment_cad_venda_end"
+                    android:inputType="text"
+                    android:entries="@array/venda_enderecos"
+                    android:textAlignment="center" />
+
+
+                <EditText
+                    android:id="@+id/fragVendaEDTnumero"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.4"
+                    android:hint="@string/fragment_cad_venda_num"
+                    android:inputType="number"
+                    android:textAlignment="center" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/fragVendaEDTbairro"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:hint="@string/fragment_cad_venda_bairro"
+                    android:inputType="text"
+                    android:entries="@array/venda_bairros"
+                    android:textAlignment="center"/>
+
+                <Spinner
+                    android:id="@+id/fragVendaEDTboy"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:hint="@string/fragment_cad_venda_moto"
+                    android:textAlignment="center" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/fragVendaIMGcancel"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:contentDescription="@string/venda_content_img"
+                android:src="@drawable/ic_erro" />
+
+            <ImageView
+                android:id="@+id/fragVendaIMGok"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="50dp"
+                android:contentDescription="@string/venda_content_img"
+                android:src="@drawable/ic_sucesso" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
