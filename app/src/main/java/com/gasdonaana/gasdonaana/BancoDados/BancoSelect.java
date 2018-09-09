@@ -10,6 +10,7 @@ import android.os.AsyncTask;
 import com.gasdonaana.gasdonaana.Helper.Menssagens;
 import com.gasdonaana.gasdonaana.Helper.Preferencias;
 import com.gasdonaana.gasdonaana.RegistradoraActivity;
+import com.gasdonaana.gasdonaana.SpashActivity;
 import com.gasdonaana.gasdonaana.VendaGasActivity;
 
 import java.util.ArrayList;
@@ -72,6 +73,8 @@ public class BancoSelect {
                     ((VendaGasActivity)context).ProdutosDisponiveis(resultado);
                 else if(acao == 1)
                     ((RegistradoraActivity)context).RecebendoResultados(resultado);
+                else if(acao == 2)
+                    ((SpashActivity)context).RecebendoEnderecos(resultado);
                 else
                     Menssagens.showToast("159",context);
             }

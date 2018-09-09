@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.gasdonaana.gasdonaana.BancoDados.BancoSelect;
+
 public class SpashActivity extends AppCompatActivity {
 
     @Override
@@ -18,9 +20,14 @@ public class SpashActivity extends AppCompatActivity {
         imagem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent it = new Intent(SpashActivity.this, LoginActivity.class);
-                startActivity(it);
+            BancoSelect crud = new BancoSelect(SpashActivity.this);
+            crud.conectarAobanco(1,"rua","ruas","");
             }
         });
+    }
+
+    public void RecebendoEnderecos(String resultados){
+        Intent it = new Intent(SpashActivity.this, LoginActivity.class);
+        startActivity(it);
     }
 }

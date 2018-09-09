@@ -61,33 +61,32 @@ public class RegistradoraActivity extends AppCompatActivity {
         listaRegistradora.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            Fragment alterarRegistFragment = new AlterarRegistFragment();
+            transaction.add(R.id.fragmentRegistradora, alterarRegistFragment, "AlterarRegistFragment");
+            transaction.addToBackStack(null); //Linha super importante para  o retorno do fragment
+            if(fragmentManager.findFragmentByTag("AlterarRegistFragment") == null) {
 
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                FragmentTransaction transaction = fragmentManager.beginTransaction();
-                Fragment alterarRegistFragment = new AlterarRegistFragment();
-                transaction.add(R.id.fragmentRegistradora, alterarRegistFragment, "AlterarRegistFragment");
-                transaction.addToBackStack(null); //Linha super importante para  o retorno do fragment
-                if(fragmentManager.findFragmentByTag("AlterarRegistFragment") == null) {
-
-                    RegistradoraModel registradoraModel = registradoraArray.get(position);
-                    Bundle bundle = new Bundle();
-                    bundle.putString("CODIGO", registradoraModel.getId());
-                    bundle.putInt("PRODINT", registradoraModel.getProduto());
-                    bundle.putString("PRODDESC", registradoraModel.getProdutoDescricao());
-                    bundle.putString("VENDEDOR", registradoraModel.getVendedor());
-                    bundle.putString("DATAVENDA", registradoraModel.getData_venda());
-                    bundle.putString("HOARIOVENDA", registradoraModel.getHorario_venda());
-                    bundle.putString("HOARIOENTREGUE", registradoraModel.getHorario_entregue());
-                    bundle.putInt("TELE", registradoraModel.getTele());
-                    bundle.putInt("PAGAMENTO", registradoraModel.getPagamento());
-                    bundle.putInt("STATUS", registradoraModel.getStatus());
-                    bundle.putInt("INTEIRA", registradoraModel.getInteira());
-                    bundle.putInt("QUANTIDADE", registradoraModel.getQuantidade());
-                    bundle.putInt("TOTAL", Integer.parseInt(registradoraModel.getTotal()));
-                    alterarRegistFragment
-                            .setArguments(bundle);
-                    transaction.commit();
-                }
+                RegistradoraModel registradoraModel = registradoraArray.get(position);
+                Bundle bundle = new Bundle();
+                bundle.putString("CODIGO", registradoraModel.getId());
+                bundle.putInt("PRODINT", registradoraModel.getProduto());
+                bundle.putString("PRODDESC", registradoraModel.getProdutoDescricao());
+                bundle.putString("VENDEDOR", registradoraModel.getVendedor());
+                bundle.putString("DATAVENDA", registradoraModel.getData_venda());
+                bundle.putString("HOARIOVENDA", registradoraModel.getHorario_venda());
+                bundle.putString("HOARIOENTREGUE", registradoraModel.getHorario_entregue());
+                bundle.putInt("TELE", registradoraModel.getTele());
+                bundle.putInt("PAGAMENTO", registradoraModel.getPagamento());
+                bundle.putInt("STATUS", registradoraModel.getStatus());
+                bundle.putInt("INTEIRA", registradoraModel.getInteira());
+                bundle.putInt("QUANTIDADE", registradoraModel.getQuantidade());
+                bundle.putInt("TOTAL", Integer.parseInt(registradoraModel.getTotal()));
+                alterarRegistFragment
+                        .setArguments(bundle);
+                transaction.commit();
+            }
             }
         });
     }

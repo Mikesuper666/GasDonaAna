@@ -18,8 +18,8 @@ public class LoginActivity extends AppCompatActivity {
         imagem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent it = new Intent(LoginActivity.this, PrincipalActivity.class);
-                startActivity(it);
+            Intent it = new Intent(LoginActivity.this, PrincipalActivity.class);
+            startActivity(it);
             }
         });
     }

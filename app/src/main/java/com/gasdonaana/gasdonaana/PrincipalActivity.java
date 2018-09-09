@@ -6,8 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.gasdonaana.gasdonaana.R;
-
 public class PrincipalActivity extends AppCompatActivity {
 
     @Override
