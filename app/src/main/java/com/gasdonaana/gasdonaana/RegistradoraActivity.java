@@ -83,7 +83,7 @@ public class RegistradoraActivity extends AppCompatActivity {
                     bundle.putInt("STATUS", registradoraModel.getStatus());
                     bundle.putInt("INTEIRA", registradoraModel.getInteira());
                     bundle.putInt("QUANTIDADE", registradoraModel.getQuantidade());
-                    bundle.putString("TOTAL", registradoraModel.getTotal());
+                    bundle.putInt("TOTAL", Integer.parseInt(registradoraModel.getTotal()));
                     alterarRegistFragment
                             .setArguments(bundle);
                     transaction.commit();

@@ -4,8 +4,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -42,7 +44,7 @@ public class AlterarRegistFragment extends Fragment{
         int status = getArguments().getInt("STATUS");
         int inteira = getArguments().getInt("INTEIRA");
         int quantidade = getArguments().getInt("QUANTIDADE");
-        String total = getArguments().getString("TOTAL");
+        int total = getArguments().getInt("TOTAL");
 
         //Declarando os componetes
         TextView fragRegistradoraEDTvalor = view.findViewById(R.id.fragRegistradoraEDTvalor);
@@ -53,17 +55,32 @@ public class AlterarRegistFragment extends Fragment{
         Spinner fragRegistradoraSpinnerPagamento = view.findViewById(R.id.fragRegistradoraSpinnerPagamento);
         CheckBox fragRegistradoraCheckInteira = view.findViewById(R.id.fragRegistradoraCheckInteira);
         Spinner fragRegistradoraEDTrua = view.findViewById(R.id.fragRegistradoraEDTrua);
+        final LinearLayout fragRegistradoraLinEntre = view.findViewById(R.id.fragRegistradoraLinEntre);
 
         //Adicionando as informações aos componentes
-        fragRegistradoraEDTvalor.setText("R$"+total);
-        fragRegistradoraEDTqtde.setText("UN"+quantidade);
+
+
+        fragRegistradoraEDTvalor.setText(String.format(getResources().getString(R.string.string_rs), total));
+        fragRegistradoraEDTqtde.setText(String.format(getResources().getString(R.string.string_un),quantidade));
         fragRegistradoraEDTDesc.setText(prodDesc);
         fraRegistradoraStatus.setSelection(status);
         fragRegistradoraSpinnerTele.setSelection(tele);
         fragRegistradoraSpinnerPagamento.setSelection(pagamento);
-        if(inteira == 1){fragRegistradoraCheckInteira.setChecked(true);}
-        //fragRegistradoraEDTrua.setSelection(INTEIRAAAAA);
+        fragRegistradoraCheckInteira.setChecked(inteira == 1);//IDE pediu para simplificar essa parte
 
+        fragRegistradoraSpinnerTele.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                fragRegistradoraLinEntre.setVisibility((position == 0) ? View.GONE : View.VISIBLE);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        fragRegistradoraEDTrua.setSelection(0);
 
         return view;
     }

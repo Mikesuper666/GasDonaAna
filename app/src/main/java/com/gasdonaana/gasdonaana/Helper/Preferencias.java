@@ -24,7 +24,6 @@ public class Preferencias {
         editor.commit();
     }
 
-
     public String getFuncionario()
     {
         return sharedPreferences.getString(FUNCIONARIO_KEY, null);
