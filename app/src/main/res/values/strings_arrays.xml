@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="venda_valor">
+        <item>57,00</item>
+        <item>59,00</item>
+        <item>60,00</item>
+        <item>62,00</item>
+        <item>65,00</item>
+    </string-array>
+    <string-array name="venda_entrega">
+        <item>Não</item>
+        <item>Sim</item>
+    </string-array>
+    <string-array name="venda_pagamento">
+        <item>Dinheiro</item>
+        <item>Cartão</item>
+    </string-array>
+    <string-array name="registradora_status">
+        <item>Pendente</item>
+        <item>Entregue</item>
+        <item>Cancelado</item>
+    </string-array>
+    <string-array name="venda_bairros">
+        <item>Selecione  o bairro</item>
+        <item>Americana</item>
+        <item>Aparecida</item>
+        <item>Bela Vista</item>
+        <item>Jardim Algarve</item>
+        <item>Jardim Esplanada</item>
+        <item>Maria Regina</item>
+        <item>Maringá</item>
+        <item>Passo do Feijó</item>
+        <item>Piratini</item>
+        <item>Stella Maris</item>
+        <item>Tijuca</item>
+        <item>Vila Tupã</item>
+        <item>Umbu</item>
+    </string-array>
+
+    <string-array name="venda_enderecos">
+        <item>Selecione a rua</item>
+        <item>Ari Rodrigues</item>
+        <item>B</item>
+        <item>C</item>
+        <item>Chico Xavier</item>
+        <item>D</item>
+        <item>Dezenove de Dezembro</item>
+        <item>E</item>
+        <item>G</item>
+        <item>H</item>
+        <item>I</item>
+        <item>X</item>
+        <item>Wenceslau Fontoura</item>
+    </string-array>
+</resources>

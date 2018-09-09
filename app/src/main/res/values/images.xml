@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="array_produtos_icones">
+        <item>@drawable/ic_gas_bujao</item>
+        <item>@drawable/ic_gas_bujao</item>
+        <item>@drawable/ic_liquinho</item>
+        <item>@drawable/ic_agua</item>
+        <item>@drawable/ic_agua</item>
+        <item>@drawable/ic_agua</item>
+        <item>@drawable/ic_agua</item>
+    </array>
+    <array name="array_produtos_icones_status">
+        <item>@drawable/ic_ampuleta</item>
+        <item>@drawable/ic_sucesso</item>
+        <item>@drawable/ic_erro</item>
+    </array>
+    <array name="array_pagamento_ico">
+        <item>@drawable/ic_dinheiro</item>
+        <item>@drawable/ic_cartao</item>
+    </array>
+</resources>

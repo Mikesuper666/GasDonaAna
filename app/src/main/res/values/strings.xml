@@ -1,3 +1,50 @@
 <resources>
-    <string name="app_name">GasDonaAna</string>
+    <!-- STRINGS GLOBAIS -->
+    <string name="string_un">%1d UN</string>
+    <string name="string_rs">R$%1d</string>
+    <!-- activity main -->
+    <string name="app_name">Dona Ana App</string>
+    <string name="activity_titulo_descricao">imagem titulo</string>
+    <!-- activity login -->
+    <string name="login_label_login">Login</string>
+    <string name="login_edt_nome">Nome</string>
+    <string name="login_edt_senha">Senha</string>
+    <string name="login_buttom_logar">Logar</string>
+    <!-- activity principal -->
+    <string name="principal_label_menu">Menu Principal</string>
+    <!-- activity registradora -->
+    <string name="registradora_label">Registradora</string>
+    <string name="registradora_img_registradora">Registradora</string>
+    <string name="registradora_label_total">Total</string>
+    <string name="registradora_label_qtde_gas">Gás P13</string>
+    <string name="registradora_label_qtde_agua">Água</string>
+    <string name="registradora_label_qtde_liquinho">Gás P2</string>
+
+    <!-- WIDGET REGISTRADORA -->
+    <string name="widget_registradora_valor">Valor</string>
+    <string name="widget_registradora_descricao">Descrição</string>
+    <string name="widget_registradora_qtde">Qtde</string>
+    <string name="widget_registradora_tele">Tele</string>
+    <string name="widget_registradora_img">Imagem do produto</string>
+    <string name="widget_registradora_img_status">Referencia o status da tele</string>
+    <!-- activity venda -->
+    <string name="venda_titulo">Venda de Gás</string>
+    <string name="venda_content_img">:Imagem de adicionar</string>
+    <string name="venda_content_imgTitulo">:Imagem de bujão</string>
+    <!-- WIDGET VENDA -->
+
+    <!-- FRAGMENT CADASTRO_VENDA -->
+    <string name="fragment_cad_venda_titulo">Cadastro de Venda</string>
+    <string name="fragment_registradora_tit">Alterar Venda</string>
+    <string name="fragment_registradora_status">Status</string>
+    <string name="fragment_cad_venda_troco">Troco</string>
+    <string name="fragment_cad_venda_tele">Tele-Entrega</string>
+    <string name="fragment_cad_venda_pag">Pagamento</string>
+    <string name="fragment_cad_venda_int">Inteiro</string>
+    <string name="fragment_cad_venda_end">Endereço</string>
+    <string name="fragment_cad_venda_num">Número</string>
+    <string name="fragment_cad_venda_bairro">Bairro</string>
+    <string name="fragment_cad_venda_moto">Motoboy</string>
+    <string name="fragment_cad_venda_qtde">1</string>
+
 </resources>

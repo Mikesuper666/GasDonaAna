@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimary">#3f51b5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="white">#FFFFFF</color>
+    <color name="yellow50">#FFFDE7</color>
+    <color name="yellow100">#FFF9C4</color>
+    <color name="yellow200">#FFF59D</color>
+    <color name="yellow300">#FFF176</color>
+    <color name="yellow400">#FFEE58</color>
+    <color name="yellow500">#FFEB3B</color>
+    <color name="yellow600">#FDD835</color>
+    <color name="yellow700">#FBC02D</color>
+    <color name="yellow800">#F9A825</color>
+    <color name="yellow900">#F57F17</color>
+    <color name="yellowA100">#FFFF8D</color>
+    <color name="yellowA200">#FFFF00</color>
+    <color name="yellowA400">#FFEA00</color>
+    <color name="yellowA700">#FFD600</color>
+    <color name="black">#000000</color>
+
 </resources>
