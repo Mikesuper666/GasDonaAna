@@ -1,4 +1,4 @@
-package com.example.maico.donaanaapp.Models;
+package com.gasdonaana.gasdonaana.Models;
 
 public class TeleModel {
     private int id_venda;

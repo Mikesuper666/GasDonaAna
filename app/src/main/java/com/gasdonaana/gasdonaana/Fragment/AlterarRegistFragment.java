@@ -1,4 +1,4 @@
-package com.example.maico.donaanaapp.Fragment;
+package com.gasdonaana.gasdonaana.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,9 +9,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.example.maico.donaanaapp.Models.RegistradoraModel;
-import com.example.maico.donaanaapp.Models.TeleModel;
-import com.example.maico.donaanaapp.R;
+import com.gasdonaana.gasdonaana.Models.RegistradoraModel;
+import com.gasdonaana.gasdonaana.Models.TeleModel;
+import com.gasdonaana.gasdonaana.R;
 
 public class AlterarRegistFragment extends Fragment{
     private int valor, venda;

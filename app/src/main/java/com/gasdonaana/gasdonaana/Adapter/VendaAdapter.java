@@ -1,4 +1,4 @@
-package com.example.maico.donaanaapp.Adapter;
+package com.gasdonaana.gasdonaana.Adapter;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -12,9 +12,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.maico.donaanaapp.Models.RegistradoraModel;
-import com.example.maico.donaanaapp.Models.TeleModel;
-import com.example.maico.donaanaapp.R;
+
+import com.gasdonaana.gasdonaana.Models.RegistradoraModel;
+import com.gasdonaana.gasdonaana.Models.TeleModel;
+import com.gasdonaana.gasdonaana.R;
 
 import java.util.ArrayList;
 

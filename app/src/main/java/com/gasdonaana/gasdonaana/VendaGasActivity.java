@@ -12,14 +12,14 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.maico.donaanaapp.Adapter.VendaAdapter;
-import com.example.maico.donaanaapp.BancoDados.BancoInsert;
-import com.example.maico.donaanaapp.BancoDados.BancoSelect;
-import com.example.maico.donaanaapp.Fragment.CadastroVendaFragment;
-import com.example.maico.donaanaapp.Helper.Data;
-import com.example.maico.donaanaapp.Helper.Menssagens;
-import com.example.maico.donaanaapp.Models.RegistradoraModel;
-import com.example.maico.donaanaapp.Models.TeleModel;
+import com.gasdonaana.gasdonaana.Adapter.VendaAdapter;
+import com.gasdonaana.gasdonaana.BancoDados.BancoInsert;
+import com.gasdonaana.gasdonaana.BancoDados.BancoSelect;
+import com.gasdonaana.gasdonaana.Fragment.CadastroVendaFragment;
+import com.gasdonaana.gasdonaana.Helper.Data;
+import com.gasdonaana.gasdonaana.Helper.Menssagens;
+import com.gasdonaana.gasdonaana.Models.RegistradoraModel;
+import com.gasdonaana.gasdonaana.Models.TeleModel;
 
 import java.util.ArrayList;
 

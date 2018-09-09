@@ -1,4 +1,4 @@
-package com.example.maico.donaanaapp.BancoDados;
+package com.gasdonaana.gasdonaana.BancoDados;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
@@ -7,11 +7,10 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 
-import com.example.maico.donaanaapp.Helper.Menssagens;
-import com.example.maico.donaanaapp.Helper.Preferencias;
-import com.example.maico.donaanaapp.Models.RegistradoraModel;
-import com.example.maico.donaanaapp.RegistradoraActivity;
-import com.example.maico.donaanaapp.VendaGasActivity;
+import com.gasdonaana.gasdonaana.Helper.Menssagens;
+import com.gasdonaana.gasdonaana.Helper.Preferencias;
+import com.gasdonaana.gasdonaana.RegistradoraActivity;
+import com.gasdonaana.gasdonaana.VendaGasActivity;
 
 import java.util.ArrayList;
 

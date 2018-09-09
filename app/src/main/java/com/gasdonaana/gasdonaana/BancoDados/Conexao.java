@@ -1,4 +1,4 @@
-package com.example.maico.donaanaapp.BancoDados;
+package com.gasdonaana.gasdonaana.BancoDados;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;

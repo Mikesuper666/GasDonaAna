@@ -1,4 +1,4 @@
-package com.example.maico.donaanaapp.Fragment;
+package com.gasdonaana.gasdonaana.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
@@ -15,10 +15,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
-import com.example.maico.donaanaapp.Models.RegistradoraModel;
-import com.example.maico.donaanaapp.Models.TeleModel;
-import com.example.maico.donaanaapp.R;
-import com.example.maico.donaanaapp.VendaGasActivity;
+
+import com.gasdonaana.gasdonaana.Models.RegistradoraModel;
+import com.gasdonaana.gasdonaana.Models.TeleModel;
+import com.gasdonaana.gasdonaana.R;
+import com.gasdonaana.gasdonaana.VendaGasActivity;
 
 import java.util.ArrayList;
 import java.util.Objects;
