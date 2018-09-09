@@ -1,10 +1,12 @@
-package com.example.maico.donaanaapp;
+package com.gasdonaana.gasdonaana;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
+
+import com.gasdonaana.gasdonaana.R;
 
 public class PrincipalActivity extends AppCompatActivity {
 
