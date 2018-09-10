@@ -3,6 +3,7 @@ package com.gasdonaana.gasdonaana;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -25,7 +26,7 @@ public class SpashActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
             BancoSelect crud = new BancoSelect(SpashActivity.this);
-            crud.conectarAobanco(2,"*","ruas","");
+            crud.conectarAobanco(2,"rua","ruas","");
             }
         });
     }
@@ -47,7 +48,10 @@ public class SpashActivity extends AppCompatActivity {
         }
         Preferencias preferencias = new Preferencias(this);
 
-        preferencias.SetarLista(bairros);
+       // preferencias.SetarLista(bairros);
+
+
+        Log.d("storesharedPreferences",">>>>"+preferencias.getLista());
     }
 
     private void ProsseguirLogin(){

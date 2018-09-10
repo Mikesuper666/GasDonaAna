@@ -2,8 +2,8 @@ package com.gasdonaana.gasdonaana.Helper;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Log;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -41,6 +41,12 @@ public class Preferencias {
         set.addAll(lista);
         editor.putStringSet(BAIRROS, set);
         editor.apply();
-        Log.d("storesharedPreferences",">>>>"+lista);
     }
+
+    public List<String> getLista() {
+        Set<String> set = sharedPreferences.getStringSet(BAIRROS, null);
+        ArrayList<String> arrPackage = new ArrayList<>();
+        arrPackage.addAll(set);
+        return arrPackage;
+    }//Função teste para adquir dados passados por banco de dados
 }
