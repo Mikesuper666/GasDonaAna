@@ -7,6 +7,10 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.gasdonaana.gasdonaana.BancoDados.BancoSelect;
+import com.gasdonaana.gasdonaana.Helper.Preferencias;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SpashActivity extends AppCompatActivity {
 
@@ -21,12 +25,32 @@ public class SpashActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
             BancoSelect crud = new BancoSelect(SpashActivity.this);
-            crud.conectarAobanco(1,"rua","ruas","");
+            crud.conectarAobanco(2,"*","ruas","");
             }
         });
     }
 
     public void RecebendoEnderecos(String resultados){
+//corta a string a cada '__' e insere dentro do array
+        String dadosArray[] = resultados.split("__");
+
+        List<String> bairros = new ArrayList<>();
+
+        for (int i = 0; i < dadosArray.length; ) {
+
+            if (dadosArray[i].contains("^")) {
+                break;
+            } else {
+                bairros.add(dadosArray[i]);
+                i++;
+            }
+        }
+        Preferencias preferencias = new Preferencias(this);
+
+        preferencias.SetarLista(bairros);
+    }
+
+    private void ProsseguirLogin(){
         Intent it = new Intent(SpashActivity.this, LoginActivity.class);
         startActivity(it);
     }

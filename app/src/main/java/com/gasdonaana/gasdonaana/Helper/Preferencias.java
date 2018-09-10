@@ -2,6 +2,11 @@ package com.gasdonaana.gasdonaana.Helper;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class Preferencias {
     private Context contexto;
@@ -11,6 +16,7 @@ public class Preferencias {
     private SharedPreferences.Editor editor;
 
     private String FUNCIONARIO_KEY = "funcionarios";
+    private String BAIRROS = "bairros";
 
     public Preferencias(Context contextoParametro)
     {
@@ -30,4 +36,11 @@ public class Preferencias {
     }
 
 
+    public void SetarLista(List<String> lista){
+        Set<String> set = new HashSet<>();
+        set.addAll(lista);
+        editor.putStringSet(BAIRROS, set);
+        editor.apply();
+        Log.d("storesharedPreferences",">>>>"+lista);
+    }
 }
