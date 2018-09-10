@@ -1,5 +1,6 @@
 package com.gasdonaana.gasdonaana.Helper;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 
@@ -9,19 +10,18 @@ import java.util.List;
 import java.util.Set;
 
 public class Preferencias {
-    private Context contexto;
     private SharedPreferences sharedPreferences;
-    private String NOME_ARQUIVO = "preferencia";
-    private int MODE = 0;
     private SharedPreferences.Editor editor;
 
     private String FUNCIONARIO_KEY = "funcionarios";
     private String BAIRROS = "bairros";
 
+    @SuppressLint("CommitPrefEdits")
     public Preferencias(Context contextoParametro)
     {
-        contexto = contextoParametro;
-        sharedPreferences = contexto.getSharedPreferences(NOME_ARQUIVO, MODE);
+        String NOME_ARQUIVO = "preferencia";
+        int MODE = 0;
+        sharedPreferences = contextoParametro.getSharedPreferences(NOME_ARQUIVO, MODE);
         editor = sharedPreferences.edit();
     }
 
@@ -37,16 +37,14 @@ public class Preferencias {
 
 
     public void SetarLista(List<String> lista){
-        Set<String> set = new HashSet<>();
-        set.addAll(lista);
+        Set<String> set = new HashSet<>(lista);
         editor.putStringSet(BAIRROS, set);
         editor.apply();
     }
 
     public List<String> getLista() {
         Set<String> set = sharedPreferences.getStringSet(BAIRROS, null);
-        ArrayList<String> arrPackage = new ArrayList<>();
-        arrPackage.addAll(set);
+        ArrayList<String> arrPackage = new ArrayList<>(set);
         return arrPackage;
     }//Função teste para adquir dados passados por banco de dados
 }
