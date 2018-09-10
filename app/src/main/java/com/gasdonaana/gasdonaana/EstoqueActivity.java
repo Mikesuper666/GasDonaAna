@@ -18,7 +18,7 @@ public class EstoqueActivity extends AppCompatActivity {
 
         Preferencias preferencias = new Preferencias(this);
 
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, preferencias.getLista());
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 

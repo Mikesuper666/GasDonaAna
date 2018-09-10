@@ -44,7 +44,6 @@ public class Preferencias {
 
     public List<String> getLista() {
         Set<String> set = sharedPreferences.getStringSet(BAIRROS, null);
-        ArrayList<String> arrPackage = new ArrayList<>(set);
-        return arrPackage;
+        return new ArrayList<>(set);
     }//Função teste para adquir dados passados por banco de dados
 }

@@ -8,22 +8,17 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 
 import com.gasdonaana.gasdonaana.Helper.Menssagens;
-import com.gasdonaana.gasdonaana.Helper.Preferencias;
 import com.gasdonaana.gasdonaana.RegistradoraActivity;
 import com.gasdonaana.gasdonaana.SpashActivity;
 import com.gasdonaana.gasdonaana.VendaGasActivity;
-
-import java.util.ArrayList;
 
 public class BancoSelect {
     private Context context;
     private ProgressDialog dialogBaixando;
     private int acao;
-    private Preferencias preferencias;
 
     public BancoSelect(Context context){
         this.context = context;
-        preferencias = new Preferencias(context);
     }
 
     public void conectarAobanco(int acao, String select, String from, String where) {

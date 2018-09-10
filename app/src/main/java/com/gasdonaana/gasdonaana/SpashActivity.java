@@ -31,7 +31,8 @@ public class SpashActivity extends AppCompatActivity {
     }
 
     public void RecebendoEnderecos(String resultados){
-//corta a string a cada '__' e insere dentro do array
+        //corta a string a cada '__' e insere dentro do array
+        //metodo de atualização offline de endereços
         String dadosArray[] = resultados.split("__");
 
         List<String> bairros = new ArrayList<>();

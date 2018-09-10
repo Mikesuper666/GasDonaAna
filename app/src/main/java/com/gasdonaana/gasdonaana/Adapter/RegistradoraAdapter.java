@@ -1,5 +1,6 @@
 package com.gasdonaana.gasdonaana.Adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.annotation.NonNull;
@@ -29,18 +30,15 @@ public class RegistradoraAdapter extends ArrayAdapter<RegistradoraModel> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        View view = null;
-        RegistradoraModel registradoraModel;
+        //inicializa os objetos para montagem da lista
+        LayoutInflater layoutInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        assert layoutInflater != null;
+        @SuppressLint("ViewHolder") View view = layoutInflater.inflate(R.layout.widget_registradora, parent, false);
+
         //verifica se a lista está preenchida
         if(registradoraModels != null){
-            //inicializa os objetos para montagem da lista
-            LayoutInflater layoutInflater = (LayoutInflater)context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
-
-            //monta a view apartir do xml
-            view = layoutInflater.inflate(R.layout.widget_registradora, parent, false);
-
             //seta valores nos componetes de tela
-            registradoraModel = registradoraModels.get(position);
+            RegistradoraModel registradoraModel = registradoraModels.get(position);
             //Recuperar elementos da tela
             TextView txtValor = view.findViewById(R.id.widget_registradora_txtValor); //Armazena o valor
             TextView txtDescricao = view.findViewById(R.id.widget_registradora_txtDescricao); //Armazena o valor
@@ -58,8 +56,8 @@ public class RegistradoraAdapter extends ArrayAdapter<RegistradoraModel> {
             txtTele.setText((registradoraModel.getTele() == 0)?"Nao":"Sim");
 
 
-            final TypedArray imgStatusTyped = context.getResources().obtainTypedArray(R.array.array_produtos_icones_status);
-            final TypedArray imgTyped = context.getResources().obtainTypedArray(R.array.array_produtos_icones);
+            @SuppressLint("Recycle") final TypedArray imgStatusTyped = context.getResources().obtainTypedArray(R.array.array_produtos_icones_status);
+            @SuppressLint("Recycle") final TypedArray imgTyped = context.getResources().obtainTypedArray(R.array.array_produtos_icones);
 
             //Adiciona imagem no staus e icone de apresentação
             imgStatus.setImageResource(imgStatusTyped.getResourceId(registradoraModel.getStatus(), -1));

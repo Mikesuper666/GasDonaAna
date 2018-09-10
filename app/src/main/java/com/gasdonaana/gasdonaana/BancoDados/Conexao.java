@@ -34,7 +34,7 @@ public class Conexao {
             InputStream inputStream = connection.getInputStream();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
             String linha;
-            StringBuffer reposta = new StringBuffer();
+            StringBuilder reposta = new StringBuilder();
 
             while ((linha = bufferedReader.readLine()) != null) {
                 reposta.append(linha);
