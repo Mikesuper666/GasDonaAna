@@ -6,6 +6,7 @@
     <!-- activity main -->
     <string name="app_name">Dona Ana App</string>
     <string name="activity_titulo_descricao">imagem titulo</string>
+    <string name="lb_estoque">Estoque</string>
     <!-- activity login -->
     <string name="login_label_login">Login</string>
     <string name="login_edt_nome">Nome</string>
