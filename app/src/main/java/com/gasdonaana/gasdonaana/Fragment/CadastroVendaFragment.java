@@ -184,11 +184,10 @@ public class CadastroVendaFragment extends Fragment{
 
     private void PreencherDados(String informacoes) {
 
-        String[] prodsFuncs = informacoes.split("#_#");
         //==============================================================
         //PREENCHER INFORMAÇÕES DE PRODUTOS
         //==============================================================
-        String[] produtos = prodsFuncs[0].split("__");
+        String[] produtos = informacoes.split("__");
 
         ArrayList<String> nomeProdutos = new ArrayList<>();
 
@@ -198,8 +197,8 @@ public class CadastroVendaFragment extends Fragment{
             if (produtos[i].contains("^")) {
                 break;
             } else {
-                nomeProdutos.add(produtos[(i)]);
-                i++;
+                nomeProdutos.add(produtos[i]+ " "+produtos[(i+1)]+" "+produtos[(i+2)]);
+                i=i+3;
             }
         }
         ArrayAdapter<String> produtosAdapter =
