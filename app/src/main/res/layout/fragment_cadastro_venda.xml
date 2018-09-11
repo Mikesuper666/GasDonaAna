@@ -180,9 +180,6 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:hint="@string/fragment_cad_venda_end"
-                    android:inputType="text"
-                    android:entries="@array/venda_enderecos"
                     android:textAlignment="center" />
 
 
@@ -209,9 +206,6 @@
                     android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:layout_weight="1"
-                    android:hint="@string/fragment_cad_venda_bairro"
-                    android:inputType="text"
-                    android:entries="@array/venda_bairros"
                     android:textAlignment="center"/>
 
                 <Spinner

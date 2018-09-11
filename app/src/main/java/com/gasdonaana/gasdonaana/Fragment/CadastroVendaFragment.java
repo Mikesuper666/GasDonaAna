@@ -16,19 +16,21 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 
 
+import com.gasdonaana.gasdonaana.Helper.Preferencias;
 import com.gasdonaana.gasdonaana.Models.RegistradoraModel;
 import com.gasdonaana.gasdonaana.Models.TeleModel;
 import com.gasdonaana.gasdonaana.R;
 import com.gasdonaana.gasdonaana.VendaGasActivity;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 
 public class CadastroVendaFragment extends Fragment{
     private int valor, venda;
     private EditText fragVendaEDTvalor, fragVendaEDTtroco, fragVendaEDTvenda;
-    private Spinner fragVendaEDTboy, fragVendadescricao;
+    private Spinner fragVendaEDTboy, fragVendadescricao, fragVendaEDTrua, fragVendaEDTbairro;
     public CadastroVendaFragment() {
         // Required empty public constructor
     }
@@ -50,9 +52,9 @@ public class CadastroVendaFragment extends Fragment{
         final Spinner spinnerPag = view.findViewById(R.id.fragVendaSpinnerPagamento);
         CheckBox fragVendaCheckInteira = view.findViewById(R.id.fragVendaCheckInteira);
         final LinearLayout fragVendaLinearEntrega = view.findViewById(R.id.fragVendaLinearEntrega);
-        final Spinner fragVendaEDTrua = view.findViewById(R.id.fragVendaEDTrua);
+        fragVendaEDTrua = view.findViewById(R.id.fragVendaEDTrua);
         final EditText fragVendaEDTnumero = view.findViewById(R.id.fragVendaEDTnumero);
-        final Spinner fragVendaEDTbairro = view.findViewById(R.id.fragVendaEDTbairro);
+        fragVendaEDTbairro = view.findViewById(R.id.fragVendaEDTbairro);
         fragVendaEDTboy = view.findViewById(R.id.fragVendaEDTboy);
         ImageView fragVendaIMGcancel = view.findViewById(R.id.fragVendaIMGcancel);
         ImageView fragVendaIMGok = view.findViewById(R.id.fragVendaIMGok);
@@ -206,29 +208,70 @@ public class CadastroVendaFragment extends Fragment{
         fragVendadescricao.setAdapter(produtosAdapter);
 
         //==============================================================
-        //PREENCHER INFORMAÇÕES DE funcionarios
+        //PREENCHER INFORMAÇÕES DE dados armazenados em preferencias
         //==============================================================
+        Preferencias preferencias = new Preferencias(getActivity());
 
-        String[] funcionarios = prodsFuncs[1].split("__");
+        //corta a string a cada '__' e insere dentro do array
+        //metodo de atualização offline de endereços
+        String dadosBairros[] = preferencias.getBairros().split("__");
+        dadosBairros[0] = "Selecione o bairro";
+        List<String> bairros = new ArrayList<>();
 
-        ArrayList<String> nomeFuncionarios = new ArrayList<>();
+        for (int i = 0; i < dadosBairros.length; ) {
 
-        nomeFuncionarios.add("Selecione o funcionário");
-
-        for (int i = 0; i < funcionarios.length; ) {
-
-            if (funcionarios[i].contains("^")) {
+            if (dadosBairros[i].contains("^")) {
                 break;
             } else {
-                nomeFuncionarios.add(funcionarios[i]);
+                bairros.add(dadosBairros[i]);
                 i++;
             }
         }
 
-        ArrayAdapter<String> funcionariosAdapeter =
-                new ArrayAdapter<>(getActivity(),  android.R.layout.simple_spinner_dropdown_item,
-                        Objects.requireNonNull(nomeFuncionarios));
-        funcionariosAdapeter.setDropDownViewResource( android.R.layout.simple_spinner_dropdown_item);
-        fragVendaEDTboy.setAdapter(funcionariosAdapeter);
+        //metodo de atualização offline de endereços
+        String dadosEnderecos[] = preferencias.getEderecos().split("__");
+        dadosEnderecos[0] = "Selecione a Rua";
+        List<String> enderecos = new ArrayList<>();
+
+        for (int i = 0; i < dadosEnderecos.length; ) {
+
+            if (dadosEnderecos[i].contains("^")) {
+                break;
+            } else {
+                enderecos.add(dadosEnderecos[i]);
+                i++;
+            }
+        }
+
+        //metodo de atualização offline de endereços
+        String dadosFuncionarios[] = preferencias.getFuncionario().split("__");
+        dadosFuncionarios[0] = "Selecione o funcionário";
+        List<String> funcionarios = new ArrayList<>();
+
+        for (int i = 0; i < dadosFuncionarios.length; ) {
+
+            if (dadosFuncionarios[i].contains("^")) {
+                break;
+            } else {
+                funcionarios.add(dadosFuncionarios[i]);
+                i++;
+            }
+        }
+
+        ArrayAdapter<String> dataRuas = new ArrayAdapter<>(getActivity(),
+                android.R.layout.simple_spinner_item, enderecos);
+        dataRuas.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        fragVendaEDTrua.setAdapter(dataRuas);
+
+        ArrayAdapter<String> dataBairros = new ArrayAdapter<>(getActivity(),
+                android.R.layout.simple_spinner_item, bairros);
+        dataBairros.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        fragVendaEDTbairro.setAdapter(dataBairros);
+
+        ArrayAdapter<String> dataFuncionarios = new ArrayAdapter<>(getActivity(),
+                android.R.layout.simple_spinner_item, funcionarios);
+        dataFuncionarios.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        fragVendaEDTboy.setAdapter(dataFuncionarios);
+
     }
 }

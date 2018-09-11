@@ -9,8 +9,6 @@ import android.widget.ImageView;
 import com.gasdonaana.gasdonaana.BancoDados.BancoSelect;
 import com.gasdonaana.gasdonaana.Helper.Preferencias;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class SpashActivity extends AppCompatActivity {
 
@@ -25,31 +23,21 @@ public class SpashActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
             BancoSelect crud = new BancoSelect(SpashActivity.this);
-            crud.conectarAobanco(2,"rua","ruas","");
+            crud.conectarAobanco(2,"rua","ruas","","_UNION_ALL_SELECT_bairro_FROM_bairros_UNION_ALL_SELECT_nome_FROM_funcionarios_WHERE_roleid=5_AND_ativo=1");
             }
         });
     }
 
     public void RecebendoEnderecos(String resultados){
-        //corta a string a cada '__' e insere dentro do array
-        //metodo de atualização offline de endereços
-        String dadosArray[] = resultados.split("__");
+        String[] ArraysAseparar = resultados.split("#_#");
 
-        List<String> bairros = new ArrayList<>();
-
-        for (int i = 0; i < dadosArray.length; ) {
-
-            if (dadosArray[i].contains("^")) {
-                break;
-            } else {
-                bairros.add(dadosArray[i]);
-                i++;
-            }
-        }
         Preferencias preferencias = new Preferencias(this);
-
-        preferencias.SetarLista(bairros);
-
+        //endereços
+        preferencias.setEnderecos(ArraysAseparar[1]);
+        //bairros
+        preferencias.setBairros(ArraysAseparar[2]);
+        //funcionarios
+        preferencias.setFuncionarios(ArraysAseparar[3]);
 
         ProsseguirLogin();
     }

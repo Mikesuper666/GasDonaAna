@@ -72,7 +72,7 @@ public class VendaGasActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 BancoSelect bancoSelect = new BancoSelect(VendaGasActivity.this);
-                bancoSelect.conectarAobanco(0,"id,_descricao,_validade","produtos","ativo*1");
+                bancoSelect.conectarAobanco(0,"id,_descricao,_validade","produtos","ativo*1","");
             }
         });
     }

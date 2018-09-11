@@ -21,7 +21,7 @@ public class BancoSelect {
         this.context = context;
     }
 
-    public void conectarAobanco(int acao, String select, String from, String where) {
+    public void conectarAobanco(int acao, String select, String from, String where,String order) {
         ConnectivityManager connMgr = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         assert connMgr != null;
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
@@ -29,7 +29,7 @@ public class BancoSelect {
         if (networkInfo != null && networkInfo.isConnected()) {
 
             //URL da api que recebará as infos requisitadas
-            String url = "http://192.168.0.102/da_gas/db/select/select.php?acao="+acao+"&select="+select+"&FROM="+from+"&WHERE="+where;
+            String url = "http://192.168.0.102/da_gas/db/select/select.php?acao="+acao+"&select="+select+"&FROM="+from+"&WHERE="+where+"&ORDER="+order;
             //acao pos API processada
             this.acao = acao;
 
