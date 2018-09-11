@@ -1,14 +1,11 @@
 package com.gasdonaana.gasdonaana;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
-
 import com.gasdonaana.gasdonaana.BancoDados.BancoSelect;
 import com.gasdonaana.gasdonaana.Helper.Preferencias;
-
 
 public class SpashActivity extends AppCompatActivity {
 
@@ -23,7 +20,7 @@ public class SpashActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
             BancoSelect crud = new BancoSelect(SpashActivity.this);
-            crud.conectarAobanco(2,"rua","ruas","","_UNION_ALL_SELECT_bairro_FROM_bairros_UNION_ALL_SELECT_nome_FROM_funcionarios_WHERE_roleid=5_AND_ativo=1");
+            crud.conectarAobanco(2,"id,rua","ruas","","_ORDER_by_rua");
             }
         });
     }
@@ -33,11 +30,11 @@ public class SpashActivity extends AppCompatActivity {
 
         Preferencias preferencias = new Preferencias(this);
         //endereços
-        preferencias.setEnderecos(ArraysAseparar[1]);
+        preferencias.setEnderecos(ArraysAseparar[0]);
         //bairros
-        preferencias.setBairros(ArraysAseparar[2]);
+        preferencias.setBairros(ArraysAseparar[1]);
         //funcionarios
-        preferencias.setFuncionarios(ArraysAseparar[3]);
+        preferencias.setFuncionarios(ArraysAseparar[2]);
 
         ProsseguirLogin();
     }

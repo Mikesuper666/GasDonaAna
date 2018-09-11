@@ -31,6 +31,7 @@ public class CadastroVendaFragment extends Fragment{
     private int valor, venda;
     private EditText fragVendaEDTvalor, fragVendaEDTtroco, fragVendaEDTvenda;
     private Spinner fragVendaEDTboy, fragVendadescricao, fragVendaEDTrua, fragVendaEDTbairro;
+    private ArrayList<Integer> bairrosContagem = new ArrayList<>();
     public CadastroVendaFragment() {
         // Required empty public constructor
     }
@@ -214,46 +215,48 @@ public class CadastroVendaFragment extends Fragment{
         //corta a string a cada '__' e insere dentro do array
         //metodo de atualização offline de endereços
         String dadosBairros[] = preferencias.getBairros().split("__");
-        dadosBairros[0] = "Selecione o bairro";
-        List<String> bairros = new ArrayList<>();
 
+        ArrayList<String> bairros = new ArrayList<>();
+        bairros.add("Selecione o bairro");
+        bairrosContagem.add(0);
         for (int i = 0; i < dadosBairros.length; ) {
 
             if (dadosBairros[i].contains("^")) {
                 break;
             } else {
-                bairros.add(dadosBairros[i]);
-                i++;
+                bairrosContagem.add(Integer.parseInt(dadosBairros[i]));
+                bairros.add(dadosBairros[i+1]);
+                i+=2;
             }
         }
 
         //metodo de atualização offline de endereços
         String dadosEnderecos[] = preferencias.getEderecos().split("__");
-        dadosEnderecos[0] = "Selecione a Rua";
-        List<String> enderecos = new ArrayList<>();
 
+        List<String> enderecos = new ArrayList<>();
+        enderecos.add("Selecione a Rua");
         for (int i = 0; i < dadosEnderecos.length; ) {
 
             if (dadosEnderecos[i].contains("^")) {
                 break;
             } else {
-                enderecos.add(dadosEnderecos[i]);
-                i++;
+                enderecos.add(dadosEnderecos[i]+" "+dadosEnderecos[i+1]);
+                i+=2;
             }
         }
 
         //metodo de atualização offline de endereços
         String dadosFuncionarios[] = preferencias.getFuncionario().split("__");
-        dadosFuncionarios[0] = "Selecione o funcionário";
-        List<String> funcionarios = new ArrayList<>();
 
+        List<String> funcionarios = new ArrayList<>();
+        funcionarios.add("Selecione o funcionário");
         for (int i = 0; i < dadosFuncionarios.length; ) {
 
             if (dadosFuncionarios[i].contains("^")) {
                 break;
             } else {
-                funcionarios.add(dadosFuncionarios[i]);
-                i++;
+                funcionarios.add(dadosFuncionarios[i]+" "+dadosFuncionarios[i+1]);
+                i+=2;
             }
         }
 

@@ -12,12 +12,12 @@ public class Preferencias {
     private String ENDERECOS = "enderecos";
     private String BAIRROS = "bairros";
 
-    private String NOME_ARQUIVO = "preferencia";
-    private int MODE = 0;
-
+    @SuppressLint("CommitPrefEdits")
     public Preferencias(Context contextoParametro)
     {
 
+        String NOME_ARQUIVO = "preferencia";
+        int MODE = 0;
         sharedPreferences = contextoParametro.getSharedPreferences(NOME_ARQUIVO, MODE);
         editor = sharedPreferences.edit();
     }
