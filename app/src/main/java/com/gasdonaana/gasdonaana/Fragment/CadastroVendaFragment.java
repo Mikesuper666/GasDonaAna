@@ -32,6 +32,8 @@ public class CadastroVendaFragment extends Fragment{
     private EditText fragVendaEDTvalor, fragVendaEDTtroco, fragVendaEDTvenda;
     private Spinner fragVendaEDTboy, fragVendadescricao, fragVendaEDTrua, fragVendaEDTbairro;
     private ArrayList<Integer> bairrosContagem = new ArrayList<>();
+    private ArrayList<Integer> enderecosContagem = new ArrayList<>();
+    private ArrayList<Integer> funcionariosContagem = new ArrayList<>();
     public CadastroVendaFragment() {
         // Required empty public constructor
     }
@@ -151,13 +153,12 @@ public class CadastroVendaFragment extends Fragment{
                 }
                 if(fragVendaEDTqtde.getText().toString().isEmpty()){fragVendaEDTqtde.setError("Não pode estar vazio!"); return;}else{registradoraModel.setQuantidade(Integer.parseInt(fragVendaEDTqtde.getText().toString())); }
                 if(spinnerTele.getSelectedItemPosition() == 1){
-                    if(fragVendaEDTrua.getSelectedItemPosition() == 0){fragVendaEDTnumero.setError("Adicione o nome da rua"); return;}else{teleModel.setEndereco(fragVendaEDTrua.getSelectedItem().toString().replace(" ", "_"));}
+                    if(fragVendaEDTrua.getSelectedItemPosition() == 0){fragVendaEDTnumero.setError("Adicione o nome da rua"); return;}else{teleModel.setEndereco(enderecosContagem.get(fragVendaEDTrua.getSelectedItemPosition()));}
                     if(fragVendaEDTnumero.getText().toString().isEmpty()){fragVendaEDTnumero.setError("Adione o número da casa"); return;}else{teleModel.setNumero(Integer.parseInt(fragVendaEDTnumero.getText().toString()));}
-                    if(fragVendaEDTbairro.getSelectedItemPosition() == 0){fragVendaEDTnumero.setError("Adicione o bairro"); return;}else{teleModel.setBairro(fragVendaEDTbairro.getSelectedItem().toString().replace(" ", "_"));}
+                    if(fragVendaEDTbairro.getSelectedItemPosition() == 0){fragVendaEDTnumero.setError("Adicione o bairro"); return;}else{teleModel.setBairro(bairrosContagem.get(fragVendaEDTbairro.getSelectedItemPosition()));}
                     if(fragVendaEDTboy.getSelectedItemPosition() == 0){fragVendaEDTnumero.setError("Escolha o entregador"); return;}else{
-                        String dadosArray[] = fragVendaEDTboy.getSelectedItem().toString().split(" ");
-                        teleModel.setEntregador(Integer.parseInt(dadosArray[0]));
-                        teleModel.setEntregadorDescicao(dadosArray[1]);
+                        teleModel.setEntregador(funcionariosContagem.get(fragVendaEDTboy.getSelectedItemPosition()));
+                        teleModel.setEntregadorDescicao(fragVendaEDTboy.getSelectedItem().toString());
                     }
                 }
                 ProcederVenda();
@@ -235,12 +236,14 @@ public class CadastroVendaFragment extends Fragment{
 
         List<String> enderecos = new ArrayList<>();
         enderecos.add("Selecione a Rua");
+        enderecosContagem.add(0);
         for (int i = 0; i < dadosEnderecos.length; ) {
 
             if (dadosEnderecos[i].contains("^")) {
                 break;
             } else {
-                enderecos.add(dadosEnderecos[i]+" "+dadosEnderecos[i+1]);
+                enderecosContagem.add(Integer.parseInt(dadosEnderecos[i]));
+                enderecos.add(dadosEnderecos[i+1]);
                 i+=2;
             }
         }
@@ -250,12 +253,14 @@ public class CadastroVendaFragment extends Fragment{
 
         List<String> funcionarios = new ArrayList<>();
         funcionarios.add("Selecione o funcionário");
+        funcionariosContagem.add(0);
         for (int i = 0; i < dadosFuncionarios.length; ) {
 
             if (dadosFuncionarios[i].contains("^")) {
                 break;
             } else {
-                funcionarios.add(dadosFuncionarios[i]+" "+dadosFuncionarios[i+1]);
+                funcionariosContagem.add(Integer.parseInt(dadosFuncionarios[i]));
+                funcionarios.add(dadosFuncionarios[i+1]);
                 i+=2;
             }
         }
