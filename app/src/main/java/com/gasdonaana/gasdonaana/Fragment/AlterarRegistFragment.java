@@ -5,20 +5,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.gasdonaana.gasdonaana.Helper.BaseInfos;
+import com.gasdonaana.gasdonaana.Helper.Preferencias;
 import com.gasdonaana.gasdonaana.Models.RegistradoraModel;
 import com.gasdonaana.gasdonaana.Models.TeleModel;
 import com.gasdonaana.gasdonaana.R;
 
+import java.util.ArrayList;
+
 public class AlterarRegistFragment extends Fragment{
     private int valor, venda;
     private EditText fragVendaEDTvalor, fragVendaEDTtroco, fragVendaEDTvenda;
-    private Spinner fragVendaEDTboy, fragVendadescricao;
+    private Spinner fragVendaEDTboy, fragVendadescricao, fragRegistradoraEDTrua;
     public AlterarRegistFragment() {
         // Required empty public constructor
     }
@@ -54,9 +59,9 @@ public class AlterarRegistFragment extends Fragment{
         Spinner fragRegistradoraSpinnerTele = view.findViewById(R.id.fragRegistradoraSpinnerTele);
         Spinner fragRegistradoraSpinnerPagamento = view.findViewById(R.id.fragRegistradoraSpinnerPagamento);
         CheckBox fragRegistradoraCheckInteira = view.findViewById(R.id.fragRegistradoraCheckInteira);
-        Spinner fragRegistradoraEDTrua = view.findViewById(R.id.fragRegistradoraEDTrua);
+        fragRegistradoraEDTrua = view.findViewById(R.id.fragRegistradoraEDTrua);
         final LinearLayout fragRegistradoraLinEntre = view.findViewById(R.id.fragRegistradoraLinEntre);
-
+        processarEndereco();
         //Adicionando as informações aos componentes
 
 
@@ -80,9 +85,18 @@ public class AlterarRegistFragment extends Fragment{
             }
         });
 
-        fragRegistradoraEDTrua.setSelection(0);
-
         return view;
     }
 
+    private void processarEndereco(){
+//==============================================================
+        //PREENCHER INFORMAÇÕES DE ADAPTER
+        //==============================================================
+        Preferencias preferencias = new Preferencias(getActivity());
+        ArrayList<String> enderecos = BaseInfos.InfoDescricao(preferencias.getEderecos(),2,1,false,"Selecione o endereço");
+        ArrayAdapter<String> produtosAdapter = new ArrayAdapter<>(getActivity(),
+                android.R.layout.simple_spinner_dropdown_item, enderecos);
+        produtosAdapter.setDropDownViewResource( android.R.layout.simple_spinner_dropdown_item);
+        fragRegistradoraEDTrua.setAdapter(produtosAdapter);
+    }
 }

@@ -56,7 +56,7 @@ public class RegistradoraActivity extends AppCompatActivity {
          **************************************************/
         dataAtual.setText(Data.Data_Hora("1",this));
 
-        BuscarInfos(dataAtual.getText()+"");
+        BuscarInfos(dataAtual.getText().toString());
 
         listaRegistradora.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -93,7 +93,7 @@ public class RegistradoraActivity extends AppCompatActivity {
 
     private void BuscarInfos(String data){
         BancoSelect crud = new BancoSelect(this);
-        crud.conectarAobanco(1,"v.*,p.descricao","vendas_v,produtos_p","p.id=v.produto_AND_v.datavenda*'"+data+"'","");
+        crud.conectarAobanco(1,"v.*,p.descricao","vendas_v,produtos_p","p.id=v.produto_AND_v.datavenda*'"+data+"'","_ORDER_by_datavenda");
     }
 
     private void AtualizarLista(ArrayList<RegistradoraModel> arrayList) {

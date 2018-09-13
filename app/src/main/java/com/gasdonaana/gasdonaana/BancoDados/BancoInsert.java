@@ -31,7 +31,7 @@ public class BancoInsert {
             switch (tabela) {
                 case 0:
                     //url = "http://www.onuse.com.br/db/ana_db/select/select.php?acao=0";
-                    url = "http://192.168.0.102/da_gas/db/insert/insert.php?produto="+registradoraModel.getProduto()+"&vendedor=1"+"&datavenda="+registradoraModel.getData_venda()+"&horario_venda="+registradoraModel.getHorario_venda()+"&horario_entregue="+registradoraModel.getHorario_venda()+"&tele="+registradoraModel.getTele()+"&pagamento="+registradoraModel.getPagamento()+"&status="+registradoraModel.getStatus()+"&inteira="+registradoraModel.getInteira()+"&quantidade="+registradoraModel.getQuantidade()+"&total="+registradoraModel.getTotal()+"&endereco="+teleModel.getEndereco()+"&numero="+teleModel.getNumero()+"&bairro="+teleModel.getBairro()+"&entregador="+teleModel.getEntregador();
+                    url = "http://192.168.0.102/da_gas/db/insert/insert.php?produto="+registradoraModel.getProduto()+"&vendedor=1"+"&datavenda="+registradoraModel.getData_venda()+"&horario_venda="+registradoraModel.getHorario_venda()+"&horario_entregue="+registradoraModel.getHorario_venda()+"&tele="+registradoraModel.getTele()+"&pagamento="+registradoraModel.getPagamento()+"&status="+registradoraModel.getStatus()+"&inteira="+registradoraModel.getInteira()+"&quantidade="+registradoraModel.getQuantidade()+"&total="+registradoraModel.getTotal()+"&endereco="+teleModel.getEndereco()[0]+"&numero="+teleModel.getNumero()+"&bairro="+teleModel.getBairro()[0]+"&entregador="+teleModel.getEntregador()[0];
                     break;
             }
             this.tabela = tabela;
