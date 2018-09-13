@@ -1,10 +1,10 @@
 package com.gasdonaana.gasdonaana.Adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,14 +13,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-
-import com.gasdonaana.gasdonaana.Helper.BaseInfos;
-import com.gasdonaana.gasdonaana.Helper.Preferencias;
 import com.gasdonaana.gasdonaana.Models.RegistradoraModel;
 import com.gasdonaana.gasdonaana.Models.TeleModel;
 import com.gasdonaana.gasdonaana.R;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class VendaAdapter extends ArrayAdapter<RegistradoraModel> {
     private Context context;
@@ -37,18 +35,16 @@ public class VendaAdapter extends ArrayAdapter<RegistradoraModel> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        View view = null;
+        //inicializa os objetos para montagem da lista
+        LayoutInflater layoutInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        //monta a view apartir do xml
+        @SuppressLint("ViewHolder")
+        View view = Objects.requireNonNull(layoutInflater).inflate(R.layout.widget_venda, parent, false);
         RegistradoraModel registradoraModel;
         TeleModel teleModel;
 
         //verifica se a lista está preenchida
         if(registradoraModels != null){
-            //inicializa os objetos para montagem da lista
-            LayoutInflater layoutInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-            //monta a view apartir do xml
-            assert layoutInflater != null;
-            view = layoutInflater.inflate(R.layout.widget_venda, parent, false);
 
             //seta valores nos componetes de tela
             registradoraModel = registradoraModels.get(position);
@@ -70,6 +66,7 @@ public class VendaAdapter extends ArrayAdapter<RegistradoraModel> {
             txtQuantidade.setText(String.format(context.getResources().getString(R.string.string_un), registradoraModel.getQuantidade()));
 
             //setando pagamento
+            @SuppressLint("Recycle")
             final TypedArray imgStatusTyped = context.getResources().obtainTypedArray(R.array.array_pagamento_ico);
 
             //Adiciona imagem no staus e icone de apresentação
@@ -87,15 +84,11 @@ public class VendaAdapter extends ArrayAdapter<RegistradoraModel> {
                 TextView widget_venda_bairro = view.findViewById(R.id.widget_venda_bairro);
                 TextView widget_venda_motoboy = view.findViewById(R.id.widget_venda_motoboy);
 
-                //preferencias se tele exixtir
-                Preferencias preferencias = new Preferencias(context);
-
                 //setando o endereço
-                widget_venda_rua.setText(teleModel.getEnds()[1]);////teleModel.getEndereco());
-
+                widget_venda_rua.setText(teleModel.getEndereco()[1]);
                 widget_venda_numero.setText(String.valueOf(teleModel.getNumero()));
-                widget_venda_bairro.setText("ss");//teleModel.getBairro());
-                widget_venda_motoboy.setText(teleModel.getEntregadorDescicao());
+                widget_venda_bairro.setText(teleModel.getBairro()[1]);
+                widget_venda_motoboy.setText(teleModel.getEntregador()[1]);
             }
         }
         return view;

@@ -2,20 +2,10 @@ package com.gasdonaana.gasdonaana.Models;
 
 public class TeleModel {
     private int id_venda;
-    private int endereco;
     private int numero;
-    private int bairro;
-    private int entregador;
-    private String entregadorDescicao;
-    private String[] ends;
-
-    public String[] getEnds() {
-        return ends;
-    }
-
-    public void setEnds(String[] ends) {
-        this.ends = ends;
-    }
+    private String[] bairro;
+    private String[] entregador;
+    private String[] endereco;
 
     public TeleModel(){}
 
@@ -35,35 +25,27 @@ public class TeleModel {
         this.numero = numero;
     }
 
-    public int getEntregador() {
+    public String[] getEntregador() {
         return entregador;
     }
 
-    public void setEntregador(int entregador) {
+    public void setEntregador(String[] entregador) {
         this.entregador = entregador;
     }
 
-    public String getEntregadorDescicao() {
-        return entregadorDescicao;
-    }
-
-    public void setEntregadorDescicao(String entregadorDescicao) {
-        this.entregadorDescicao = entregadorDescicao;
-    }
-
-    public int getEndereco() {
+    public String[] getEndereco() {
         return endereco;
     }
 
-    public void setEndereco(int endereco) {
+    public void setEndereco(String[] endereco) {
         this.endereco = endereco;
     }
 
-    public int getBairro() {
+    public String[] getBairro() {
         return bairro;
     }
 
-    public void setBairro(int bairro) {
+    public void setBairro(String[] bairro) {
         this.bairro = bairro;
     }
 }

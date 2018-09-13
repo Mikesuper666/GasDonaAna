@@ -154,13 +154,16 @@ public class CadastroVendaFragment extends Fragment{
                 }
                 if(fragVendaEDTqtde.getText().toString().isEmpty()){fragVendaEDTqtde.setError("Não pode estar vazio!"); return;}else{registradoraModel.setQuantidade(Integer.parseInt(fragVendaEDTqtde.getText().toString())); }
                 if(spinnerTele.getSelectedItemPosition() == 1){
-                    if(fragVendaEDTrua.getSelectedItemPosition() == 0){fragVendaEDTnumero.setError("Adicione o nome da rua"); return;}else{String enderecoArray[] = {enderecosContagem.get(fragVendaEDTrua.getSelectedItemPosition()).toString(),fragVendaEDTrua.getSelectedItem().toString()};teleModel.setEnds(enderecoArray);}//teleModel.setEndereco(enderecosContagem.get(fragVendaEDTrua.getSelectedItemPosition()));}
+                    if(fragVendaEDTrua.getSelectedItemPosition() == 0){fragVendaEDTnumero.setError("Adicione o nome da rua"); return;}else{
+                        String enderecoArray[] = {enderecosContagem.get(fragVendaEDTrua.getSelectedItemPosition()).toString(),fragVendaEDTrua.getSelectedItem().toString()};
+                        teleModel.setEndereco(enderecoArray);}//teleModel.setEndereco(enderecosContagem.get(fragVendaEDTrua.getSelectedItemPosition()));}
                     if(fragVendaEDTnumero.getText().toString().isEmpty()){fragVendaEDTnumero.setError("Adione o número da casa"); return;}else{teleModel.setNumero(Integer.parseInt(fragVendaEDTnumero.getText().toString()));}
-                    if(fragVendaEDTbairro.getSelectedItemPosition() == 0){fragVendaEDTnumero.setError("Adicione o bairro"); return;}else{teleModel.setBairro(bairrosContagem.get(fragVendaEDTbairro.getSelectedItemPosition()));}
+                    if(fragVendaEDTbairro.getSelectedItemPosition() == 0){fragVendaEDTnumero.setError("Adicione o bairro"); return;}else{
+                        String barrioArray[] = {bairrosContagem.get(fragVendaEDTbairro.getSelectedItemPosition()).toString(), fragVendaEDTbairro.getSelectedItem().toString()};
+                        teleModel.setBairro(barrioArray);}
                     if(fragVendaEDTboy.getSelectedItemPosition() == 0){fragVendaEDTnumero.setError("Escolha o entregador"); return;}else{
-                        teleModel.setEntregador(funcionariosContagem.get(fragVendaEDTboy.getSelectedItemPosition()));
-                        teleModel.setEntregadorDescicao(fragVendaEDTboy.getSelectedItem().toString());
-                    }
+                        String entregadorArray[] = {funcionariosContagem.get(fragVendaEDTboy.getSelectedItemPosition()).toString(), fragVendaEDTboy.getSelectedItem().toString()};
+                        teleModel.setEntregador(entregadorArray);}
                 }
                 ProcederVenda();
             }
