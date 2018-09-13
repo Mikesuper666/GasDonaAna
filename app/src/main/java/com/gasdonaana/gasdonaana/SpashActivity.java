@@ -20,7 +20,7 @@ public class SpashActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
             BancoSelect crud = new BancoSelect(SpashActivity.this);
-            crud.conectarAobanco(2,"id,rua","ruas","","_ORDER_by_rua");
+            crud.conectarAobanco(2,"id,rua","ruas","","_ORDER_by_id");
             }
         });
     }

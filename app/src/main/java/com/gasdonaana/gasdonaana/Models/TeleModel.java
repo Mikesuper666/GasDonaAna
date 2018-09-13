@@ -7,6 +7,15 @@ public class TeleModel {
     private int bairro;
     private int entregador;
     private String entregadorDescicao;
+    private String[] ends;
+
+    public String[] getEnds() {
+        return ends;
+    }
+
+    public void setEnds(String[] ends) {
+        this.ends = ends;
+    }
 
     public TeleModel(){}
 

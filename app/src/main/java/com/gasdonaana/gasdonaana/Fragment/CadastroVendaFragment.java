@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 
 
+import com.gasdonaana.gasdonaana.Helper.Menssagens;
 import com.gasdonaana.gasdonaana.Helper.Preferencias;
 import com.gasdonaana.gasdonaana.Models.RegistradoraModel;
 import com.gasdonaana.gasdonaana.Models.TeleModel;
@@ -34,6 +35,7 @@ public class CadastroVendaFragment extends Fragment{
     private ArrayList<Integer> bairrosContagem = new ArrayList<>();
     private ArrayList<Integer> enderecosContagem = new ArrayList<>();
     private ArrayList<Integer> funcionariosContagem = new ArrayList<>();
+    private ArrayList<Integer> idProdutosContagem = new ArrayList<>();
     public CadastroVendaFragment() {
         // Required empty public constructor
     }
@@ -148,12 +150,11 @@ public class CadastroVendaFragment extends Fragment{
                     registradoraModel.setProduto(1);
                 }else{
                     registradoraModel.setProdutoDescricao(fragVendadescricao.getSelectedItem().toString());
-                    String dadosArray[] = fragVendadescricao.getSelectedItem().toString().split(" ");
-                    registradoraModel.setProduto(Integer.parseInt(dadosArray[0]));
+                    registradoraModel.setProduto(idProdutosContagem.get(fragVendadescricao.getSelectedItemPosition()));
                 }
                 if(fragVendaEDTqtde.getText().toString().isEmpty()){fragVendaEDTqtde.setError("Não pode estar vazio!"); return;}else{registradoraModel.setQuantidade(Integer.parseInt(fragVendaEDTqtde.getText().toString())); }
                 if(spinnerTele.getSelectedItemPosition() == 1){
-                    if(fragVendaEDTrua.getSelectedItemPosition() == 0){fragVendaEDTnumero.setError("Adicione o nome da rua"); return;}else{teleModel.setEndereco(enderecosContagem.get(fragVendaEDTrua.getSelectedItemPosition()));}
+                    if(fragVendaEDTrua.getSelectedItemPosition() == 0){fragVendaEDTnumero.setError("Adicione o nome da rua"); return;}else{String enderecoArray[] = {enderecosContagem.get(fragVendaEDTrua.getSelectedItemPosition()).toString(),fragVendaEDTrua.getSelectedItem().toString()};teleModel.setEnds(enderecoArray);}//teleModel.setEndereco(enderecosContagem.get(fragVendaEDTrua.getSelectedItemPosition()));}
                     if(fragVendaEDTnumero.getText().toString().isEmpty()){fragVendaEDTnumero.setError("Adione o número da casa"); return;}else{teleModel.setNumero(Integer.parseInt(fragVendaEDTnumero.getText().toString()));}
                     if(fragVendaEDTbairro.getSelectedItemPosition() == 0){fragVendaEDTnumero.setError("Adicione o bairro"); return;}else{teleModel.setBairro(bairrosContagem.get(fragVendaEDTbairro.getSelectedItemPosition()));}
                     if(fragVendaEDTboy.getSelectedItemPosition() == 0){fragVendaEDTnumero.setError("Escolha o entregador"); return;}else{
@@ -162,6 +163,19 @@ public class CadastroVendaFragment extends Fragment{
                     }
                 }
                 ProcederVenda();
+            }
+        });
+
+        fragVendaEDTrua.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Menssagens.showToastSucesso(enderecosContagem.get(fragVendaEDTrua.getSelectedItemPosition()).toString(),getActivity());
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
         return view;
@@ -190,23 +204,19 @@ public class CadastroVendaFragment extends Fragment{
         //PREENCHER INFORMAÇÕES DE PRODUTOS
         //==============================================================
         String[] produtos = informacoes.split("__");
-
         ArrayList<String> nomeProdutos = new ArrayList<>();
-
         nomeProdutos.add("Selecione o produto");
+        idProdutosContagem.add(0);
         for (int i = 0; i < produtos.length; ) {
 
             if (produtos[i].contains("^")) {
                 break;
             } else {
-                nomeProdutos.add(produtos[i]+ " "+produtos[(i+1)]+" "+produtos[(i+2)]);
+                nomeProdutos.add(produtos[(i+1)]+" "+produtos[(i+2)]);
+                idProdutosContagem.add(Integer.parseInt(produtos[i].trim()));
                 i=i+3;
             }
         }
-        ArrayAdapter<String> produtosAdapter =
-                new ArrayAdapter<>(getActivity(),  android.R.layout.simple_spinner_dropdown_item, nomeProdutos);
-        produtosAdapter.setDropDownViewResource( android.R.layout.simple_spinner_dropdown_item);
-        fragVendadescricao.setAdapter(produtosAdapter);
 
         //==============================================================
         //PREENCHER INFORMAÇÕES DE dados armazenados em preferencias
@@ -225,7 +235,7 @@ public class CadastroVendaFragment extends Fragment{
             if (dadosBairros[i].contains("^")) {
                 break;
             } else {
-                bairrosContagem.add(Integer.parseInt(dadosBairros[i]));
+                bairrosContagem.add(Integer.parseInt(dadosBairros[i].trim()));
                 bairros.add(dadosBairros[i+1]);
                 i+=2;
             }
@@ -242,7 +252,7 @@ public class CadastroVendaFragment extends Fragment{
             if (dadosEnderecos[i].contains("^")) {
                 break;
             } else {
-                enderecosContagem.add(Integer.parseInt(dadosEnderecos[i]));
+                enderecosContagem.add(Integer.parseInt(dadosEnderecos[i].trim()));
                 enderecos.add(dadosEnderecos[i+1]);
                 i+=2;
             }
@@ -259,11 +269,18 @@ public class CadastroVendaFragment extends Fragment{
             if (dadosFuncionarios[i].contains("^")) {
                 break;
             } else {
-                funcionariosContagem.add(Integer.parseInt(dadosFuncionarios[i]));
+                funcionariosContagem.add(Integer.parseInt(dadosFuncionarios[i].trim()));
                 funcionarios.add(dadosFuncionarios[i+1]);
                 i+=2;
             }
         }
+        //==============================================================
+        //PREENCHER INFORMAÇÕES DE ADAPTER
+        //==============================================================
+        ArrayAdapter<String> produtosAdapter =
+                new ArrayAdapter<>(getActivity(),  android.R.layout.simple_spinner_dropdown_item, nomeProdutos);
+        produtosAdapter.setDropDownViewResource( android.R.layout.simple_spinner_dropdown_item);
+        fragVendadescricao.setAdapter(produtosAdapter);
 
         ArrayAdapter<String> dataRuas = new ArrayAdapter<>(getActivity(),
                 android.R.layout.simple_spinner_item, enderecos);

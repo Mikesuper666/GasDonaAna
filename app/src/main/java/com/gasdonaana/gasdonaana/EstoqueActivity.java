@@ -2,6 +2,7 @@ package com.gasdonaana.gasdonaana;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -26,7 +27,7 @@ public class EstoqueActivity extends AppCompatActivity {
 
         //corta a string a cada '__' e insere dentro do array
         //metodo de atualização offline de endereços
-        String dadosArray[] = preferencias.getBairros().split("__");
+        final String dadosArray[] = preferencias.getEderecos().split("__");
 
         List<String> bairros = new ArrayList<>();
         bairrosContagem.add(0);
@@ -36,8 +37,8 @@ public class EstoqueActivity extends AppCompatActivity {
             if (dadosArray[i].contains("^")) {
                 break;
             } else {
-                bairros.add(dadosArray[i]+" "+dadosArray[i+1]);
-                bairrosContagem.add(Integer.parseInt(dadosArray[i]));
+                bairros.add(dadosArray[i]+" "+dadosArray[(i+1)]);
+                bairrosContagem.add(Integer.parseInt(dadosArray[i].trim()));
                 i+=2;
             }
         }

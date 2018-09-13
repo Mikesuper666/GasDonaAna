@@ -16,8 +16,10 @@ import com.gasdonaana.gasdonaana.Adapter.VendaAdapter;
 import com.gasdonaana.gasdonaana.BancoDados.BancoInsert;
 import com.gasdonaana.gasdonaana.BancoDados.BancoSelect;
 import com.gasdonaana.gasdonaana.Fragment.CadastroVendaFragment;
+import com.gasdonaana.gasdonaana.Helper.BaseInfos;
 import com.gasdonaana.gasdonaana.Helper.Data;
 import com.gasdonaana.gasdonaana.Helper.Menssagens;
+import com.gasdonaana.gasdonaana.Helper.Preferencias;
 import com.gasdonaana.gasdonaana.Models.RegistradoraModel;
 import com.gasdonaana.gasdonaana.Models.TeleModel;
 
@@ -34,6 +36,7 @@ public class VendaGasActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_venda_gas);
+
         /*====================================================
          * DECLARACÃO DE COMPONENTES DO XML
          **************************************************/

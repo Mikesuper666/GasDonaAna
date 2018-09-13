@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
+import com.gasdonaana.gasdonaana.Helper.BaseInfos;
+import com.gasdonaana.gasdonaana.Helper.Preferencias;
 import com.gasdonaana.gasdonaana.Models.RegistradoraModel;
 import com.gasdonaana.gasdonaana.Models.TeleModel;
 import com.gasdonaana.gasdonaana.R;
@@ -84,10 +87,14 @@ public class VendaAdapter extends ArrayAdapter<RegistradoraModel> {
                 TextView widget_venda_bairro = view.findViewById(R.id.widget_venda_bairro);
                 TextView widget_venda_motoboy = view.findViewById(R.id.widget_venda_motoboy);
 
+                //preferencias se tele exixtir
+                Preferencias preferencias = new Preferencias(context);
+
                 //setando o endereço
-                widget_venda_rua.setText(teleModel.getEndereco());
+                widget_venda_rua.setText(teleModel.getEnds()[1]);////teleModel.getEndereco());
+
                 widget_venda_numero.setText(String.valueOf(teleModel.getNumero()));
-                widget_venda_bairro.setText(teleModel.getBairro());
+                widget_venda_bairro.setText("ss");//teleModel.getBairro());
                 widget_venda_motoboy.setText(teleModel.getEntregadorDescicao());
             }
         }
