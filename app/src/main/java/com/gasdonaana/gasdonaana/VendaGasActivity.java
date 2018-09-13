@@ -16,10 +16,8 @@ import com.gasdonaana.gasdonaana.Adapter.VendaAdapter;
 import com.gasdonaana.gasdonaana.BancoDados.BancoInsert;
 import com.gasdonaana.gasdonaana.BancoDados.BancoSelect;
 import com.gasdonaana.gasdonaana.Fragment.CadastroVendaFragment;
-import com.gasdonaana.gasdonaana.Helper.BaseInfos;
 import com.gasdonaana.gasdonaana.Helper.Data;
 import com.gasdonaana.gasdonaana.Helper.Menssagens;
-import com.gasdonaana.gasdonaana.Helper.Preferencias;
 import com.gasdonaana.gasdonaana.Models.RegistradoraModel;
 import com.gasdonaana.gasdonaana.Models.TeleModel;
 
@@ -107,16 +105,6 @@ public class VendaGasActivity extends AppCompatActivity {
         if (vendaArray.get(0).getTele() == 0)  vendaArray.get(0).setStatus(1); else vendaArray.get(0).setStatus(0);
 
         bancoInsert.conectarAobanco(0,vendaArray.get(0), teleArray.get(0));
-    }
-
-    public void AtualizarLista(ArrayList<RegistradoraModel> arrayList) {
-        if (arrayList != null) {
-            for (int i = 0; i < arrayList.size(); ) {
-                vendaArray.add(arrayList.get(i));
-                i++;
-            }
-            arrayAdapter.notifyDataSetChanged();
-        }
     }
 
     public void Atualizarlista(RegistradoraModel registradoraModel, TeleModel teleModel){

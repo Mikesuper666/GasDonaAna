@@ -15,8 +15,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
-
-import com.gasdonaana.gasdonaana.Helper.Menssagens;
 import com.gasdonaana.gasdonaana.Helper.Preferencias;
 import com.gasdonaana.gasdonaana.Models.RegistradoraModel;
 import com.gasdonaana.gasdonaana.Models.TeleModel;
@@ -26,7 +24,6 @@ import com.gasdonaana.gasdonaana.VendaGasActivity;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
 
 public class CadastroVendaFragment extends Fragment{
     private int valor, venda;
@@ -168,19 +165,6 @@ public class CadastroVendaFragment extends Fragment{
                 ProcederVenda();
             }
         });
-
-        fragVendaEDTrua.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Menssagens.showToastSucesso(enderecosContagem.get(fragVendaEDTrua.getSelectedItemPosition()).toString(),getActivity());
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
         return view;
     }
 
@@ -261,7 +245,6 @@ public class CadastroVendaFragment extends Fragment{
             }
         }
 
-        //metodo de atualização offline de endereços
         String dadosFuncionarios[] = preferencias.getFuncionario().split("__");
 
         List<String> funcionarios = new ArrayList<>();
@@ -280,8 +263,8 @@ public class CadastroVendaFragment extends Fragment{
         //==============================================================
         //PREENCHER INFORMAÇÕES DE ADAPTER
         //==============================================================
-        ArrayAdapter<String> produtosAdapter =
-                new ArrayAdapter<>(getActivity(),  android.R.layout.simple_spinner_dropdown_item, nomeProdutos);
+        ArrayAdapter<String> produtosAdapter = new ArrayAdapter<>(getActivity(),
+                android.R.layout.simple_spinner_dropdown_item, nomeProdutos);
         produtosAdapter.setDropDownViewResource( android.R.layout.simple_spinner_dropdown_item);
         fragVendadescricao.setAdapter(produtosAdapter);
 
